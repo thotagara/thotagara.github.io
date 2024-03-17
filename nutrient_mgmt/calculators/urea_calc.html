@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="kn">
+<head>
+
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MDLC033NN"></script> 
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1MDLC033NN');
+</script> 
+
+<!-- Bootstrap -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<title> ಯೂರಿಯ ಗಣಕ </title>
+</head>
+
+<body>
+<script>
+function doCalc() {
+  plantCount = document.getElementById("plant_count").value; 
+  nitrogen_dosage = document.getElementById("yearly_dosage").value;
+  output_val = plantCount * nitrogen_dosage * (100 / 46) / 1000
+  document.getElementById("output_val").innerHTML = output_val.toFixed(2) ;
+}
+</script>
+<div class="container border border-primary">
+  <p align="center" class="fs-3"> ಯೂರಿಯ ಕ್ಯಾಲ್ಕುಲೇಟರ್ </p>
+  <form action="#">
+    <table width="100%" border="1" cellspacing="1" cellpadding="1" class="table table-bordered">
+      <tbody>
+        <tr bgcolor="#AACAEF">
+          <th scope="col" class="text-center">ವಿವರಣೆ </th>
+          <th scope="col">ಸಂಖ್ಯೆ</th>
+        </tr>
+        <tr>
+          <td class="text-end">ಕ್ಷೇತ್ರದಲ್ಲಿರುವ ಗಿಡಗಳ ಸಂಖ್ಯೆ :</td>
+          <td class="align-middle"><input type="text" id="plant_count" name="pcount" value="100"></td>
+        </tr>
+        <tr>
+          <td class="text-end"> ಸಾರಜನಕದ (N) ಅವಶ್ಯಕತೆ : <br />
+            (ಒಂದು ಗಿಡಕ್ಕೆ ಗ್ರಾಂನಲ್ಲಿ) </td>
+          <td class="align-middle"><input type="text" id="yearly_dosage" name="ydose" value="120"></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+  <p> ಯೂರಿಯಾದಲ್ಲಿರುವ ಸಾರಜನಕ ಅಂಶ : 46% </p>
+  <p> ಇಡೀ ಕ್ಷೇತ್ರಕ್ಕೆ ಬೇಕಾಗುವ ಯೂರಿಯ ಪ್ರಮಾಣ : <span id="output_val"> ______ </span> ಕಿಲೋ ಗ್ರಾಮ್ಸ್ </p>
+  <p align="center">
+    <button type="button" onclick="doCalc()"> ಲೆಕ್ಕ ಮಾಡು </button>
+  </p>
+</div>
+<br>
+<br>
+<p style="text-align: center"> <a href="https://thotagara.github.io/">ಮುಖಪುಟ</a> .... <a href="javascript:history.go(-1)"> ಹಿಂದೆ ಹೋಗಿ </a></p>
+<br>
+<br>
+</body>
+</html>
