@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="kn">
+<head>
+
+<!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1MDLC033NN"></script> 
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1MDLC033NN');
+</script> 
+
+<!-- Bootstrap -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<title> NPK ಗಣಕ </title>
+</head>
+
+<body>
+<script>
+function doCalc() {
+  plantCount = document.getElementById("plant_count").value; 
+	
+  req_n = document.getElementById("req_n").value;
+  req_p = document.getElementById("req_p").value;
+  req_k = document.getElementById("req_k").value;
+	
+  content_percent_n = document.getElementById("percent_n").value;
+  content_percent_p = document.getElementById("percent_p").value;	
+  content_percent_k = document.getElementById("percent_k").value;	
+	
+  result_perplant_n =  req_n * (100 / content_percent_n); 
+  result_perplant_p =  req_p * (100 / content_percent_p); 
+  result_perplant_k =  req_k * (100 / content_percent_k); 	
+	
+  document.getElementById("result_per_plant_n").innerHTML = result_perplant_n.toFixed(0);
+  document.getElementById("result_per_plant_p").innerHTML = result_perplant_p.toFixed(0);
+  document.getElementById("result_per_plant_k").innerHTML = result_perplant_k.toFixed(0);
+
+  result_perarea_n = result_perplant_n * plantCount / 1000 ; 
+  result_perarea_p = result_perplant_p * plantCount / 1000 ; 
+  result_perarea_k = result_perplant_k * plantCount / 1000 ; 	
+	
+  document.getElementById("result_per_area_n").innerHTML = result_perarea_n.toFixed(2);
+  document.getElementById("result_per_area_p").innerHTML = result_perarea_p.toFixed(2);
+  document.getElementById("result_per_area_k").innerHTML = result_perarea_k.toFixed(2);
+	
+}
+</script>
+<div class="container border border-primary">
+  <form action="#">
+    <table width="100%" border="1" cellspacing="1" cellpadding="1" class="table table-bordered">
+      <tbody class="align-middle">
+        <tr bgcolor="#AACAEF">
+          <th scope="col" class="text-center" colspan="4"> NPK ಕ್ಯಾಲ್ಕುಲೇಟರ್ </th>
+        </tr>
+        <tr>
+          <td class="text-end">ಕ್ಷೇತ್ರದಲ್ಲಿರುವ ಗಿಡಗಳ ಸಂಖ್ಯೆ :</td>
+          <td colspan="3" class="align-middle"><input type="text" id="plant_count" name="pcount" value="500" size="5"></td>
+        </tr>
+        <tr>
+          <td class="text-end"> ಪೋಷಕಾಂಶ : </td>
+          <td class="text-center"> ಸಾರಜನಕ   <br> (N) </td>
+          <td class="text-center"> ಫಾಸ್ಫರಸ್ <br> (P) </td>
+          <td class="text-center"> ರಂಜಕ     <br> (K) </td>
+        </tr>
+        <tr>
+          <td class="text-end">ಒಂದು ಗಿಡದ ಪೋಷಕಾಂಶದ ಅವಶ್ಯಕತೆ (ಗ್ರಾಂನಲ್ಲಿ)* </td>
+          <td class="text-center"><input type="text" id="req_n" name="ydosen" value="150" size="3"></td>
+          <td class="text-center"><input type="text" id="req_p" name="ydosep" value="80" size="3"></td>
+          <td class="text-center"><input type="text" id="req_k" name="ydosek" value="280" size="3"></td>
+        </tr>
+        <tr>
+          <td class="text-end"> ರಾಸಾಯನಿಕ ಗೊಬ್ಬರದ ಹೆಸರು : </td>
+          <td class="text-center">ಯೂರಿಯ</td>
+          <td class="text-center">ರಾಕ್ ಫಾಸ್ಪೇಟ್</td>
+          <td class="text-center">ಎಂ.ಓ.ಪಿ.</td>
+        </tr>
+        <tr>
+          <td class="text-end"> ಪೋಷಕಾಂಶದ ಪ್ರಮಾಣ** (%) : </td>
+          <td class="text-center"><input type="text" id="percent_n" name="content_n" value="46" size="2"></td>
+          <td class="text-center"><input type="text" id="percent_p" name="content_p" value="30" size="2"></td>
+          <td class="text-center"><input type="text" id="percent_k" name="content_k" value="60" size="2"></td>
+        </tr>
+        <tr>
+          <td class="text-end"> ಒಂದು ಗಿಡಕ್ಕೆ ಹಾಕಬೇಕಾದ ಗೊಬ್ಬರದ ಪ್ರಮಾಣ (ಗ್ರಾಂನಲ್ಲಿ) </td>
+          <td class="text-center" id="result_per_plant_n">...</td>
+          <td class="text-center" id="result_per_plant_p">...</td>
+          <td class="text-center" id="result_per_plant_k">...</td>
+        </tr>
+        <tr>
+          <td class="text-end"> ಕ್ಷೇತ್ರಕ್ಕೆ ಬೇಕಾಗುವ ಗೊಬ್ಬರ (ಕಿಲೋದಲ್ಲಿ) </td>
+          <td class="text-center" id="result_per_area_n">...</td>
+          <td class="text-center" id="result_per_area_p">...</td>
+          <td class="text-center" id="result_per_area_k">...</td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+  <p align="center">
+    <button type="button" onclick="doCalc()"> ಲೆಕ್ಕ ಮಾಡು </button>
+  </p>
+  <p>&nbsp;* - ತಜ್ಞರ ಸಲಹೆಯಂತೆ ನಿಮ್ಮ ತೋಟಕ್ಕೆ ಬೇಕಾದ ಪ್ರಮಾಣವನ್ನು ನಿಗದಿ ಮಾಡಿ. </p>
+  <p>** - ಪೋಷಕಾಂಶದ ಪ್ರಮಾಣವನ್ನು ಫರ್ಟಿಲೈಜರ್ ಚೀಲದ ಮೇಲೆ ನಮೂದಿಸಿರುತ್ತಾರೆ.</p>
+</div>
+<br>
+<br>
+<p style="text-align: center"> <a href="https://thotagara.github.io/">ಮುಖಪುಟ</a> .... <a href="javascript:history.go(-1)"> ಹಿಂದೆ ಹೋಗಿ </a></p>
+<br>
+<br>
+</body>
+</html>
